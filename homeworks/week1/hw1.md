@@ -14,7 +14,7 @@
      *  捨棄全部檔案：`git checkout .`
    
 8. 將檔案儲存進 git：`git commit -m "${要提交的訊息內容}"`
-   [此時檔案放進儲存庫了 repository]
+   [此時檔案放進儲存庫 repository 了]
 9. * 想修改最後一次 commit message：`git commit --amend -m "${要修改的訊息}"`
    * 想修改之前歷史紀錄的 commit message：`git rebase `
      (1) 查看歷史紀錄：`git log --oneline`
@@ -24,7 +24,7 @@
 
 ## 推到遠端 GitHub
 10. 確認與遠端的連線 `git remote`
-11. 把檔案推到遠端 `git push origin master`
+11. 把檔案推到遠端 `git push origin week1`
 12. 到 GitHub 發起 `pull request`
 13. 把 PR 的網址貼在學習系統上給助教
 14. 待助教看過後，他會在 GitHub 上按下 `Merge pull request` 的按鈕
