@@ -10,17 +10,17 @@
      * 提交單一檔案：`git add hw1.md`
      * 提交全部檔案：`git add .`
    * 捨棄此次寫的內容：[此時檔案還是在工作區 working area]
-     * 捨棄單一檔案：`git checkout --hw1.md`
-     *  捨棄全部檔案：`git checkout .`
+     * 捨棄單一檔案：`git checkout hw1.md`
+     * 捨棄全部檔案：`git checkout .`
    
 8. 將檔案儲存進 git：`git commit -m "${要提交的訊息內容}"`
    [此時檔案放進儲存庫 repository 了]
 9. * 想修改最後一次 commit message：`git commit --amend -m "${要修改的訊息}"`
-   * 想修改之前歷史紀錄的 commit message：`git rebase `
-     (1) 查看歷史紀錄：`git log --oneline`
-     (2) `git rebase -i ${要回去的版本}`
-     (3) 把 `pick` 改成 `reword`
-     (4) 修改訊息內容，存檔離開
+   * 想修改之前歷史紀錄的 commit message：`git rebase `  
+     (1) 查看歷史紀錄：`git log --oneline`  
+     (2) `git rebase -i ${要回去的版本}`  
+     (3) 把 `pick` 改成 `reword`  
+     (4) 修改訊息內容，存檔離開  
 
 ## 推到遠端 GitHub
 10. 確認與遠端的連線 `git remote`
@@ -34,75 +34,3 @@
 16. 切換到 master 分支：`git checkout master`
 17. 把遠端 master 最新異動拉進來：`git pull origin master`
 18. 把本地端 week1 分支刪掉：`git branch -d week1`
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
