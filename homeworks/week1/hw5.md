@@ -4,7 +4,7 @@
 
 ## 假設我今天去 Google 首頁搜尋框打上：JavaScript 並且按下 Enter，請說出從這一刻開始到我看到搜尋結果為止發生在背後的事情。
 要到 Google 首頁，你必須先在瀏覽器內輸入 `www.google.com`。而我們的 DNS (Domain Name Service) 可以藉由我們輸入的域名 `google.com` 來找到 Google 的真實 IP 位置，我們就能來到 Google 首頁了。
-你在 Google 首頁上輸入 JavaScript 按下 Enter 時，你的瀏覽器對你的電腦內的網路卡提出傳送訊息的需求 request，而網路卡把你的 request 藉由網路傳送到 Google 的伺服器，接著 Google 伺服器會向他的資料庫索取資料，再把回應 reponse 回傳到 Google 網站，我們就能看到搜尋結果了。
+你在 Google 首頁上輸入 JavaScript 按下 Enter 時，你的瀏覽器對你的電腦內的網路卡提出傳送訊息的需求 request，而網路卡把你的 request 藉由網路傳送到 Google 的伺服器，接著 Google 伺服器會向他的資料庫索取資料，再把回應 response 回傳到我們現在電腦上的瀏覽器，由瀏覽器更新畫面顯示搜尋結果，就是我們看到搜尋 JavaScript 的結果畫面ˇ了。
 
 ## 請列舉出 3 個「課程沒有提到」的 command line 指令並且說明功用
 1. `tail 檔案`：列出檔案最後的內容。預設是 10 列。
