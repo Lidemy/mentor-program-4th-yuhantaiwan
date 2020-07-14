@@ -24,3 +24,4 @@
 13. space-infix-ops: Operator '=' must be spaced
 14. no-use-before-define: 'printStars' was used before it was defined -> disable
 15. no-shadow: 'lines' is already declared in the upper scope -> disable
+16. eol-last: Newline required at end of file but not found
