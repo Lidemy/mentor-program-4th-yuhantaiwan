@@ -25,3 +25,6 @@
 14. no-use-before-define: 'printStars' was used before it was defined -> disable
 15. no-shadow: 'lines' is already declared in the upper scope -> disable
 16. eol-last: Newline required at end of file but not found
+17. no-else-return: Unnecessary 'else' after 'return'
+18. eqeqeq: Expected '===' and instead saw '=='
+19. consistent-return: Expected to return a value at the end of function 'compareStr'
