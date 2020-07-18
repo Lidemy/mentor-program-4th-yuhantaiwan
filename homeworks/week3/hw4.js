@@ -15,7 +15,7 @@ rl.on('close', () => {
 
 function solve(lines) {
   const str = lines[0];
-  reverseStr(str);
+  console.log(reverseStr(str) ? 'True' : 'False');
 }
 
 function reverseStr(str) {
@@ -23,9 +23,5 @@ function reverseStr(str) {
   for (let i = str.length; i >= 1; i--) {
     newStr += str[i - 1];
   }
-  if (newStr === str) {
-    console.log('True');
-  } else {
-    console.log('False');
-  }
+  return newStr === str;
 }
