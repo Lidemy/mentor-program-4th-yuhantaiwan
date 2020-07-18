@@ -21,6 +21,6 @@ module.exports = {
   ],
   rules: {
     "no-console": "off",
-    "allowForLoopAfterthoughts": true,
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
   },
 };
