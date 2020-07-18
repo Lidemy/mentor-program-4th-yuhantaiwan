@@ -17,23 +17,23 @@ function solve(lines) {
   const temp = lines[0].split(' ');
   const n = Number(temp[0]);
   const m = Number(temp[1]);
-  isNarcissistic(n, m);
-}
-
-function isNarcissistic(n, m) {
   for (let i = n; i <= m; i++) {
-    const digit = countDigit(i);
-    let j = i;
-    let result = 0;
-    while (j > 0) {
-      const number = j % 10;
-      j = Math.floor(j / 10);
-      result += (number ** digit);
-    }
-    if (result === i) {
+    if (isNarcissistic(i)) {
       console.log(i);
     }
   }
+}
+
+function isNarcissistic(n) {
+  const digit = countDigit(n);
+  let j = n;
+  let result = 0;
+  while (j > 0) {
+    const number = j % 10;
+    j = Math.floor(j / 10);
+    result += (number ** digit);
+  }
+  return result === n;
 }
 
 function countDigit(n) {
