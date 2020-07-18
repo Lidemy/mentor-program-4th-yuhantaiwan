@@ -17,7 +17,7 @@ function solve(lines) {
   const n = Number(lines[0]);
   for (let i = 0; i < n; i++) {
     const p = lines[i + 1];
-    isPrime(p);
+    console.log(isPrime(p) ? 'Prime' : 'Composite');
   }
 }
 
@@ -28,9 +28,5 @@ function isPrime(n) {
       count += 1;
     }
   }
-  if (count === 2) {
-    console.log('Prime');
-  } else {
-    console.log('Composite');
-  }
+  return count === 2;
 }
