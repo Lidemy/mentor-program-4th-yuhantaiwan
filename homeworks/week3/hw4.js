@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define, no-shadow */
 const readline = require('readline');
 
 const lines = [];
@@ -21,7 +20,7 @@ function solve(lines) {
 
 function reverseStr(str) {
   let newStr = '';
-  for (let i = str.length; i >= 1; i -= 1) {
+  for (let i = str.length; i >= 1; i--) {
     newStr += str[i - 1];
   }
   if (newStr === str) {
