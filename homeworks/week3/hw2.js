@@ -22,7 +22,7 @@ function solve(lines) {
 }
 
 function isNarcissistic(n, m) {
-  for (let i = n; i <= m; i += 1) {
+  for (let i = n; i <= m; i++) {
     const digit = countDigit(i);
     let j = i;
     let result = 0;
