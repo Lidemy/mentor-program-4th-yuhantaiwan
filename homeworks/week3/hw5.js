@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define, no-shadow */
 const readline = require('readline');
 
 const lines = [];
@@ -16,7 +15,7 @@ rl.on('close', () => {
 
 function solve(lines) {
   const n = Number(lines[0]);
-  for (let i = 1; i <= n; i += 1) {
+  for (let i = 1; i <= n; i++) {
     const temp = lines[i].split(' ');
     const a = temp[0];
     const b = temp[1];
@@ -39,7 +38,7 @@ function compareStr(a, b, k) {
     return console.log('A');
   }
   if (a.length === b.length) {
-    for (let i = 0; i < a.length; i += 1) {
+    for (let i = 0; i < a.length; i++) {
       if (Number(a[i]) > Number(b[i])) {
         if (k === '1') {
           return console.log('A');
