@@ -20,6 +20,9 @@ module.exports = {
     'react',
   ],
   rules: {
-    "no-console": "off"
+    "no-console": "off",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-use-before-define": ["error", { "functions": false }],
+    "no-shadow": ["error", { "allow": ["lines"] }],
   },
 };
