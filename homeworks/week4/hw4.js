@@ -1,5 +1,7 @@
 const axios = require('axios');
 
+getTopGames();
+
 function getTopGames() {
   axios.get('https://api.twitch.tv/kraken/games/top', {
     headers: {
@@ -17,5 +19,3 @@ function getTopGames() {
     }
   });
 }
-
-getTopGames();
