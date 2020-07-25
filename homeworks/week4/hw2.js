@@ -27,7 +27,7 @@ switch (method) {
 function listBooks() {
   axios.get(`${url}/books`, {
     params: {
-      _limit: 20,
+      _limit: 30,
     },
   }).then((response) => {
     const getData = response.data;
@@ -56,21 +56,21 @@ function deleteBook(id) {
   });
 }
 
-function createBook(name) {
+function createBook(newName) {
   axios.post(`${url}/books`, {
-    params: {
-      name,
-    },
+    name: newName,
   }).then(() => {
-    console.log(`新增書籍 ${name} 成功！`);
+    console.log(`新增書籍 ${newName} 成功！`);
   }).catch((error) => {
-    console.log(`新增書籍 ${name} 失敗！${error}`);
+    console.log(`新增書籍 ${newName} 失敗！${error}`);
   });
 }
 
 function updateBook(id, newName) {
-  axios.patch(`${url}/books/${id}`, {
-    params: {
+  axios({
+    method: 'PATCH',
+    url: `${url}/books/${id}`,
+    data: {
       name: newName,
     },
   }).then(() => {
