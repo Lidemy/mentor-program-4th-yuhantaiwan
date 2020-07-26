@@ -147,6 +147,8 @@ Parameter content type: `application/json`
 Example Value:
 
 ```
+/api/restaurants/1
+
 {
   "Name": "Lidemy",
   "Address": "Taiwan",
