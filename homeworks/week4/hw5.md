@@ -24,6 +24,7 @@
 | Parameter | Description | Parameter Type | Data Type | Required |
 |-----------|-------------|----------------|-----------|---------|
 | limit     | 限制回傳資料數量 | query  | number | No |
+Parameter content type: `application/json`
 
 #### Response
 **Success**
@@ -59,6 +60,8 @@ Example Value:
 |-----------|-------------|----------------|-----------|---------|
 | id    | 餐廳編號 | path  | number | Yes |
 
+Parameter content type: `application/json`
+
 #### Response
 **Success**
 HTTP Status Code: 200
@@ -90,12 +93,26 @@ Example Value:
 
 | Parameter | Description | Parameter Type | Data Type | Required |
 |-----------|-------------|----------------|-----------|---------|
-| Name    | 餐廳名稱    | form data | string | Yes |
-| Address | 餐廳地址    | form data | string | Yes |
-| Tel     | 餐廳電話    | form data | string | Yes |
-| Feature | 餐廳特色介紹 | form data | string | Yes |
-| OpeningTime | 餐廳營業時間 | form data | string | No |
-| CreditCard | 餐廳是否接受刷卡消費 | form data | boolean | No |
+| Name    | 餐廳名稱    | body | string | Yes |
+| Address | 餐廳地址    | body | string | Yes |
+| Tel     | 餐廳電話    | body | string | Yes |
+| Feature | 餐廳特色介紹 | body | string | Yes |
+| OpeningTime | 餐廳營業時間 | body | string | No |
+| CreditCard | 餐廳是否接受刷卡消費 | body | boolean | No |
+
+Parameter content type: `application/json`
+Example Value:
+
+```
+{
+  "Name": "Lidemy",
+  "Address": "Taiwan",
+  "Tel": "123456789",
+  "OpenTime": "Mon-Sun 24hr",
+  "Feature": "yoyoyo",
+  "CreditCard": "True"
+}
+```
 
 #### Response
 **Success**
@@ -111,7 +128,6 @@ Example Value:
 | 500      | 系統內部錯誤  |
 
 
-
 ### 更新餐廳資訊
 #### Method: `PUT`
 #### Path: `/api/restaurants/{Id}`
@@ -120,12 +136,26 @@ Example Value:
 | Parameter | Description | Parameter Type | Data Type | Required |
 |-----------|-------------|----------------|-----------|---------|
 | Id      | 餐廳編號    | path | number | Yes |
-| Name    | 餐廳名稱    | form data | string | Yes |
-| Address | 餐廳地址    | form data | string | Yes |
-| Tel     | 餐廳電話    | form data | string | Yes |
-| Feature | 餐廳特色介紹 | form data | string | Yes |
-| OpeningTime | 餐廳營業時間 | form data | string | No |
-| CreditCard | 餐廳是否接受刷卡消費 | form data | boolean | No |
+| Name    | 餐廳名稱    | body | string | Yes |
+| Address | 餐廳地址    | body | string | Yes |
+| Tel     | 餐廳電話    | body | string | Yes |
+| Feature | 餐廳特色介紹 | body | string | Yes |
+| OpeningTime | 餐廳營業時間 | body | string | No |
+| CreditCard | 餐廳是否接受刷卡消費 | body | boolean | No |
+
+Parameter content type: `application/json`
+Example Value:
+
+```
+{
+  "Name": "Lidemy",
+  "Address": "Taiwan",
+  "Tel": "987654321",
+  "OpenTime": "Mon-Sun 24hr",
+  "Feature": "yoyoyo 123",
+  "CreditCard": "True"
+}
+```
 
 #### Response
 **Success**
@@ -149,6 +179,8 @@ Example Value:
 | Parameter | Description | Parameter Type | Data Type | Required |
 |-----------|-------------|----------------|-----------|---------|
 | Id      | 餐廳編號    | path | number | Yes |
+
+Parameter content type: `application/json`
 
 #### Response
 **Success**
