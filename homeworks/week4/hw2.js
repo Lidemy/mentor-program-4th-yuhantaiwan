@@ -27,7 +27,7 @@ switch (method) {
 function listBooks() {
   axios.get(`${url}/books`, {
     params: {
-      _limit: 30,
+      _limit: 20,
     },
   }).then((response) => {
     const getData = response.data;
