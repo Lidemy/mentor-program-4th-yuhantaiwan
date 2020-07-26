@@ -7,8 +7,7 @@
 2. `504 Gateway Timeout` ： 未能即時從伺服器端獲得回應。
 3. `415 Unsupported Media Type` : 希望提交的媒體類型，不被伺服器端所接受。
   
-＊ `418 I'm a teapot` : 我只是一個茶壺，無法煮你所要求的咖啡。當初在查找資料，看到這個狀態碼覺得很有趣，進一步搜尋後，發現 Huli 老師已經針對這個狀態碼寫了詳盡的[文章](https://blog.techbridge.cc/2019/06/15/iam-a-teapot-418/)。感謝老師的這篇文章，讓我弄清楚 `418` 其實並不是真正的 Http 狀態碼。另外，也在這篇文章－
-[常見與不常見的 HTTP Status Code](https://noob.tw/http-status-code/)中，看到有自定義的 `7xx-rfc` 覺得還滿有趣的！
+＊ `418 I'm a teapot` : 我只是一個茶壺，無法煮你所要求的咖啡。當初在查找資料，看到這個狀態碼覺得很有趣，進一步搜尋後，發現 Huli 老師已經針對這個狀態碼寫了詳盡的[文章](https://blog.techbridge.cc/2019/06/15/iam-a-teapot-418/)。感謝老師的這篇文章，讓我弄清楚 `418` 其實並不是真正的 Http 狀態碼。另外，也在這篇文章－[常見與不常見的 HTTP Status Code](https://noob.tw/http-status-code/)中，看到有自定義的 `7xx-rfc` 覺得還滿有趣的！
 
 
 ## 假設你現在是個餐廳平台，需要提供 API 給別人串接並提供基本的 CRUD 功能，包括：回傳所有餐廳資料、回傳單一餐廳資料、刪除餐廳、新增餐廳、更改餐廳，你的 API 會長什麼樣子？請提供一份 API 文件。
@@ -20,11 +19,11 @@
 #### Method: `GET`
 #### Path: `/api/restaurants`
 #### Parameters
+Parameter content type: `application/json`
 
 | Parameter | Description | Parameter Type | Data Type | Required |
 |-----------|-------------|----------------|-----------|---------|
 | limit     | 限制回傳資料數量 | query  | number | No |
-Parameter content type: `application/json`
 
 #### Response
 **Success**
@@ -55,12 +54,11 @@ Example Value:
 #### Method: `GET`
 #### Path: `/api/restaurants/{id}`
 #### Parameters
+Parameter content type: `application/json`
 
 | Parameter | Description | Parameter Type | Data Type | Required |
 |-----------|-------------|----------------|-----------|---------|
 | id    | 餐廳編號 | path  | number | Yes |
-
-Parameter content type: `application/json`
 
 #### Response
 **Success**
@@ -90,17 +88,23 @@ Example Value:
 #### Method: `POST`
 #### Path: `/api/restaurants`
 #### Parameters
+Parameter content type: `application/json`
 
 | Parameter | Description | Parameter Type | Data Type | Required |
 |-----------|-------------|----------------|-----------|---------|
-| Name    | 餐廳名稱    | body | string | Yes |
-| Address | 餐廳地址    | body | string | Yes |
-| Tel     | 餐廳電話    | body | string | Yes |
-| Feature | 餐廳特色介紹 | body | string | Yes |
-| OpeningTime | 餐廳營業時間 | body | string | No |
-| CreditCard | 餐廳是否接受刷卡消費 | body | boolean | No |
+| data   | 輸入值    | body | json | Yes |
 
-Parameter content type: `application/json`
+Data Type:
+
+| Key | Description | Value | Required |
+|-----------|-------------|----------------|-----------|
+| Name    | 餐廳名稱    | string | Yes |
+| Address | 餐廳地址    | string | Yes |
+| Tel     | 餐廳電話    | string | Yes |
+| Feature | 餐廳特色介紹 | string | Yes |
+| OpeningTime | 餐廳營業時間 | string | No |
+| CreditCard | 餐廳是否接受刷卡消費 | boolean | No |
+
 Example Value:
 
 ```
@@ -132,23 +136,27 @@ Example Value:
 #### Method: `PUT`
 #### Path: `/api/restaurants/{Id}`
 #### Parameters
+Parameter content type: `application/json`
 
 | Parameter | Description | Parameter Type | Data Type | Required |
 |-----------|-------------|----------------|-----------|---------|
 | Id      | 餐廳編號    | path | number | Yes |
-| Name    | 餐廳名稱    | body | string | Yes |
-| Address | 餐廳地址    | body | string | Yes |
-| Tel     | 餐廳電話    | body | string | Yes |
-| Feature | 餐廳特色介紹 | body | string | Yes |
-| OpeningTime | 餐廳營業時間 | body | string | No |
-| CreditCard | 餐廳是否接受刷卡消費 | body | boolean | No |
+| data   | 輸入值    | body | json | Yes |
 
-Parameter content type: `application/json`
+Data Type:
+
+| Key | Description | Value | Required |
+|-----------|-------------|----------------|-----------|
+| Name    | 餐廳名稱    | string | Yes |
+| Address | 餐廳地址    | string | Yes |
+| Tel     | 餐廳電話    | string | Yes |
+| Feature | 餐廳特色介紹 | string | Yes |
+| OpeningTime | 餐廳營業時間 | string | No |
+| CreditCard | 餐廳是否接受刷卡消費 | boolean | No |
+
 Example Value:
 
 ```
-/api/restaurants/1
-
 {
   "Name": "Lidemy",
   "Address": "Taiwan",
@@ -177,12 +185,11 @@ Example Value:
 #### Method: `DELETE`
 #### Path: `/api/restaurants/{Id}`
 #### Parameters
+Parameter content type: `application/json`
 
 | Parameter | Description | Parameter Type | Data Type | Required |
 |-----------|-------------|----------------|-----------|---------|
 | Id      | 餐廳編號    | path | number | Yes |
-
-Parameter content type: `application/json`
 
 #### Response
 **Success**
