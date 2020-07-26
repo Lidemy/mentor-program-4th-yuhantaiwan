@@ -121,7 +121,6 @@ Example Value:
 |-----------|-------------|----------------|-----------|---------|
 | Id      | 餐廳編號    | path | number | Yes |
 | Name    | 餐廳名稱    | form data | string | Yes |
-| Name    | 餐廳名稱    | form data | string | Yes |
 | Address | 餐廳地址    | form data | string | Yes |
 | Tel     | 餐廳電話    | form data | string | Yes |
 | Feature | 餐廳特色介紹 | form data | string | Yes |
