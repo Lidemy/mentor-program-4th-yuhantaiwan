@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lidemy Lazy Yoyo</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="container">
+    <form action="" method="post" id="lidemyForm">
+      <h1 class="title">新拖延運動報名表單</h1>
+      <div class="info">
+        <p class="info-text">活動日期：2020/12/10 ~ 2020/12/11</p>
+        <p class="info-text">活動地點：台北市大安區新生南路二段1號</p>
+      </div> 
+      <p class="require-text">必填</p>
+      <div class="form-item">
+        <p class="form-item-title required">暱稱</p>
+        <input type="text" id="name" placeholder="您的回答" required>
+      </div>
+      <div class="form-item">
+        <p class="form-item-title required">電子郵件</p>
+        <input type="email" id="email" placeholder="您的電子郵件" required>
+      </div>
+      <div class="form-item">
+        <p class="form-item-title required">手機號碼</p>
+        <input type="number" id="phone" placeholder="您的手機號碼">
+      </div>
+      <div class="form-item">
+        <p class="form-item-title required">報名類型</p>
+        <div class="form-item-radio">
+          <input type="radio" id="type1" name="type" required>
+          <label for="type1" class="radio-text">躺在床上用想像力實作</label>
+        </div>
+        <div class="form-item-radio">
+          <input type="radio" id="type2" name="type" required>
+        <label for="type2" class="radio-text">趴在地上滑手機找現成的</label>
+        </div>
+      </div>
+      <div class="form-item">
+        <p class="form-item-title required">怎麼知道這個活動的？</p>
+        <input type="text" id="name" placeholder="您的回答" required>
+      </div>
+      <div class="form-item">
+        <p class="form-item-title">其他</p>
+        <p class="form-text">對活動的一些建議</p>
+        <textarea name="comment" id="comment" cols="30" rows="8" placeholder="您的回答" maxlength="500"></textarea>
+        <!-- <input type="text" id="name" placeholder="您的回答"> -->
+      </div>
+      <button class="submit-btn" type="submit" form="lidemyForm">提交</button>
+      <p class="form-text">請勿透過表單送出您的密碼。</p>
+    </form>
+    <footer>
+      <p class="footer-text">© 2020 © Copyright. All rights Reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

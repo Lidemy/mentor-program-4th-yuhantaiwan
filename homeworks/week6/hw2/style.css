@@ -1,0 +1,124 @@
+/* CSS reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+* {
+  box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0px;
+  padding: 0px;
+}
+ol, ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+a, a:active, a:visited, a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.container {
+  max-width: 1920px;
+  background-color: #F1F1F1;
+  padding: 125px 0;
+  position: relative;
+}
+#lidemyForm {
+  background-color: #fff;
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 42px;
+  box-shadow: 1.8px 2.4px 5px 0 rgba(0,0,0,0.3);
+  border-top: 8px solid #fad312;
+}
+.title {
+  font-size: 36px;
+  letter-spacing: .1rem;
+}
+
+.info-text:first-child {
+  margin-top: 35px;
+  margin-bottom: 5px;
+}
+.info-text:nth-child(2) {
+  margin-bottom: 20px;
+}
+.require-text {
+  color: #e74149;
+  font-size: 16px;
+}
+.require-text::before {
+  content: '*';
+  margin-right: 5px;
+}
+.form-item {
+  padding: 20px 0;
+}
+.form-item-title {
+  font-size: 20px;
+  /* margin-bottom: 15px; */
+}
+.form-item-title.required::after {
+  content: '*';
+  color: #e74149;
+  margin-left: 5px;
+}
+input[type="text"], input[type="email"], input[type="number"] {
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #d0d0d0;
+  width: 40%;
+  outline: none;
+  line-height: 20px;
+  margin-top: 20px;
+}
+input::placeholder, textarea::placeholder {
+  color: #afafaf;
+}
+.form-item-radio {
+  display: flex;
+}
+.form-item-radio {
+  margin-top: 10px;
+}
+label.radio-text {
+  font-size: 16px;
+}
+input[type="radio"] {
+  margin-right: 5px;
+}
+textarea {
+  border: 1px solid #d0d0d0;
+  outline: none;
+  font-size: 16px;
+  resize: none;
+  margin-top: 20px;
+}
+.form-text {
+  margin-top: 12px;
+}
+.submit-btn {
+  font-size: 15px;
+  background-color: #fad312;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 3px;
+  margin: 10px 0;
+}
+footer {
+  background-color: #000;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+.footer-text {
+  color: #999999;
+  font-size: 13px;
+  padding: 20px;
+}
