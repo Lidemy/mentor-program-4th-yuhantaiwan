@@ -20,17 +20,17 @@ a, a:active, a:visited, a:focus {
   text-decoration: none;
   outline: none;
 }
-
+/* form */
 .container {
   max-width: 1920px;
   background-color: #F1F1F1;
-  padding: 125px 0;
+  padding: 10px 0 50px;
   position: relative;
 }
 #lidemyForm {
   background-color: #fff;
   max-width: 650px;
-  margin: 20px auto;
+  margin: 10% auto;
   padding: 42px;
   box-shadow: 1.8px 2.4px 5px 0 rgba(0,0,0,0.3);
   border-top: 8px solid #fad312;
@@ -39,7 +39,6 @@ a, a:active, a:visited, a:focus {
   font-size: 36px;
   letter-spacing: .1rem;
 }
-
 .info-text:first-child {
   margin-top: 35px;
   margin-bottom: 5px;
@@ -121,4 +120,17 @@ footer {
   color: #999999;
   font-size: 13px;
   padding: 20px;
+}
+
+@media(max-width: 375px) {
+  #lidemyForm {
+    margin: 5% auto 8%;
+    padding: 20px;
+  }
+  .title {
+    font-size: 32px;
+  }
+  input[type="text"], input[type="email"], input[type="number"] {
+    width: 70%;
+  }
 }

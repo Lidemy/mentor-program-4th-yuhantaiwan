@@ -15,7 +15,8 @@
 </details>
 ```
 
-可以藉由調整 `summary::-webkit-details-marker` 來改變 marker 的樣式。 [codepen](https://codepen.io/YuHan0704/pen/abNzxGN) 連結
+可以藉由調整 `summary::-webkit-details-marker` 來改變 marker 的樣式。 
+[codepen](https://codepen.io/YuHan0704/pen/abNzxGN) 連結
 
 
 <iframe height="420" style="width: 100%;" scrolling="no" title="HTML5 - Details and Summary" src="https://codepen.io/YuHan0704/embed/abNzxGN?height=420&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -33,6 +34,12 @@
 * `<progress>`: 顯示任務完成的進度狀況。常與 Js 搭配使用。
 有 `max` 與 `value` 等屬性可以使用。
 
+```html
+<meter id="fuel" min="0" max="100" low="33" high="66" optimum="80" value="50"> at 50/100 </meter>
+
+<progress id='progress' max="100" value="0"></progress>
+```
+
  [codepen](https://codepen.io/YuHan0704/pen/VwaLjgL) 連結
 
 <iframe height="416" style="width: 100%;" scrolling="no" title="&lt;meter&gt; &amp; &lt;progress&gt; - HTML" src="https://codepen.io/YuHan0704/embed/VwaLjgL?height=416&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
@@ -43,7 +50,11 @@
 ### 3. `<mark>`
 * `<mark>`: 用來標記或凸顯文字。與 `<strong>` 標籤不同的是，`<strong>` 表現的是重要性；`<mark>` 表現的是相關性。
 
-[codepen](https://codepen.io/YuHan0704/pen/VwaLjgL) 連結
+```html
+<p>It is a dark time destroyed <mark>Imperial</mark> troops have driven </p>
+```
+
+[codepen](https://codepen.io/YuHan0704/pen/yLONXdq) 連結
 
  <iframe height="366" style="width: 100%;" scrolling="no" title="&lt;mark&gt; - HTML5" src="https://codepen.io/YuHan0704/embed/yLONXdq?height=366&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/YuHan0704/pen/yLONXdq'>&lt;mark&gt; - HTML5</a> by YuHan Huang
@@ -62,6 +73,8 @@
   1. 不可設定寬度與高度。
   2. 可以設定 padding/margin，但不會影響到其他元素的排列。還是維持行內排列。
 
+[codepen連結](https://codepen.io/YuHan0704/pen/zYqGgOe)
+
 <iframe height="345" style="width: 100%;" scrolling="no" title="display-inline" src="https://codepen.io/YuHan0704/embed/zYqGgOe?height=343&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/YuHan0704/pen/zYqGgOe'>display-inline</a> by YuHan Huang
   (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -74,6 +87,8 @@
   1. 可設定寬度與高度。
   2. 設定 padding/margin，會影響到其他元素的排列。
 
+[codepen連結](https://codepen.io/YuHan0704/pen/yLONmOq)
+
 <iframe height="345" style="width: 100%;" scrolling="no" title="display-block" src="https://codepen.io/YuHan0704/embed/yLONmOq?height=339&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/YuHan0704/pen/yLONmOq'>display-block</a> by YuHan Huang
   (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -83,8 +98,10 @@
 </br>
 
 * `inline-block`: 結合 `inline` 與 `block` 的特性。
-  1. 元素以 inline 行內排列，但可以設定寬高
+  1. 元素以 inline 行內排列，但可以設定寬高。
   2. 設定 padding/margin，會影響到其他元素的排列。
+
+[codepen連結](https://codepen.io/YuHan0704/pen/abNOeBe)
 
 <iframe height="345" style="width: 100%;" scrolling="no" title="display-inline-block" src="https://codepen.io/YuHan0704/embed/abNOeBe?height=362&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/YuHan0704/pen/abNOeBe'>display-inline-block</a> by YuHan Huang
@@ -94,9 +111,25 @@
 ## 請問 position: static, relative, absolute 跟 fixed 的差別是什麼？
 * `static` : 預設值。元素「不會被特別定位」在頁面上特定位置，而是照著瀏覽器預設的配置自動排版在頁面上。無法定義 top、left、bottom 與 right。
 
-* `relative` : 與 static 位置相同，可定義 top、left、bottom 與 right。
+* `relative` : 與 static 位置相同，可定義 top、left、bottom 與 right。 **元素移動後仍會佔據原始位置** 。
 
-* `absolute`: 以「父層非 static」 的元素為定位基準。若上層所有父元素都是預設的 static 定位，則會根據 body 定位。
+* `absolute`: 以 **「父層非 static」** 的元素為定位基準。若上層所有父元素都是預設的 static 定位，則會根據 body 定位。
 
 * `fixed` : 以目前瀏覽器視窗定位，固定在瀏覽視窗的固定位置，不會隨滾動捲軸而移動。
+
+[codepen連結](https://codepen.io/YuHan0704/pen/ZEWbvpM)
+
+<iframe height="659" style="width: 100%;" scrolling="no" title="CSS position" src="https://codepen.io/YuHan0704/embed/ZEWbvpM?height=659&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/YuHan0704/pen/ZEWbvpM'>CSS position</a> by YuHan Huang
+  (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+
+### 參考資料來源
+* [10 superpowers HTML5 gives you (and you are not using)](https://dev.to/shadowwarior5/10-superpowers-that-html5-gives-you-and-you-are-not-using-4ph1)
+* [\<details>: The Details disclosure element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details#Customizing_the_disclosure_widget)
+* [\<progress>: The Progress Indicator element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress)
+* [\<mark>: The Mark Text element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark)
+* [CSS Box Model](https://www.w3schools.com/css/css_boxmodel.asp)
+* [Understanding positioning in CSS](https://dev.to/huijing/understanding-positioning-in-css-7mn?ref=dailydevlinks.com)
 
