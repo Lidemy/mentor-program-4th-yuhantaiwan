@@ -19,12 +19,6 @@
 [codepen](https://codepen.io/YuHan0704/pen/abNzxGN) 連結
 
 
-<iframe height="420" style="width: 100%;" scrolling="no" title="HTML5 - Details and Summary" src="https://codepen.io/YuHan0704/embed/abNzxGN?height=420&theme-id=dark&default-tab=css,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/YuHan0704/pen/abNzxGN'>HTML5 - Details and Summary</a> by YuHan Huang
-  (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-
-
 ### 2. `<meter>` & `<progress>`
 
 * `<meter>`: 顯示已知範圍內的某個測量數據或分數。
@@ -42,10 +36,6 @@
 
  [codepen](https://codepen.io/YuHan0704/pen/VwaLjgL) 連結
 
-<iframe height="416" style="width: 100%;" scrolling="no" title="&lt;meter&gt; &amp; &lt;progress&gt; - HTML" src="https://codepen.io/YuHan0704/embed/VwaLjgL?height=416&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/YuHan0704/pen/VwaLjgL'>&lt;meter&gt; &amp; &lt;progress&gt; - HTML</a> by YuHan Huang
-  (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
 
 ### 3. `<mark>`
 * `<mark>`: 用來標記或凸顯文字。與 `<strong>` 標籤不同的是，`<strong>` 表現的是重要性；`<mark>` 表現的是相關性。
@@ -56,10 +46,7 @@
 
 [codepen](https://codepen.io/YuHan0704/pen/yLONXdq) 連結
 
- <iframe height="366" style="width: 100%;" scrolling="no" title="&lt;mark&gt; - HTML5" src="https://codepen.io/YuHan0704/embed/yLONXdq?height=366&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/YuHan0704/pen/yLONXdq'>&lt;mark&gt; - HTML5</a> by YuHan Huang
-  (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+
 
 ## 請問什麼是盒模型（box model）
 每個 HTML 元素都可以視為一個盒子 (box)。CSS 盒模型（box model）包裝每個 HTML 元素。每個盒模型（box model）包含：content（實際內容）, padding（內距）, border（邊線）, 與 margin（外距）。
@@ -75,13 +62,6 @@
 
 [codepen連結](https://codepen.io/YuHan0704/pen/zYqGgOe)
 
-<iframe height="345" style="width: 100%;" scrolling="no" title="display-inline" src="https://codepen.io/YuHan0704/embed/zYqGgOe?height=343&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/YuHan0704/pen/zYqGgOe'>display-inline</a> by YuHan Huang
-  (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-</br>
-</br>
-</br>
 
 * `block`: 元素佔據的寬度為一整行。
   1. 可設定寬度與高度。
@@ -89,13 +69,6 @@
 
 [codepen連結](https://codepen.io/YuHan0704/pen/yLONmOq)
 
-<iframe height="345" style="width: 100%;" scrolling="no" title="display-block" src="https://codepen.io/YuHan0704/embed/yLONmOq?height=339&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/YuHan0704/pen/yLONmOq'>display-block</a> by YuHan Huang
-  (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
-</br>
-</br>
-</br>
 
 * `inline-block`: 結合 `inline` 與 `block` 的特性。
   1. 元素以 inline 行內排列，但可以設定寬高。
@@ -103,10 +76,7 @@
 
 [codepen連結](https://codepen.io/YuHan0704/pen/abNOeBe)
 
-<iframe height="345" style="width: 100%;" scrolling="no" title="display-inline-block" src="https://codepen.io/YuHan0704/embed/abNOeBe?height=362&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/YuHan0704/pen/abNOeBe'>display-inline-block</a> by YuHan Huang
-  (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
+
 
 ## 請問 position: static, relative, absolute 跟 fixed 的差別是什麼？
 * `static` : 預設值。元素「不會被特別定位」在頁面上特定位置，而是照著瀏覽器預設的配置自動排版在頁面上。無法定義 top、left、bottom 與 right。
@@ -119,10 +89,6 @@
 
 [codepen連結](https://codepen.io/YuHan0704/pen/ZEWbvpM)
 
-<iframe height="659" style="width: 100%;" scrolling="no" title="CSS position" src="https://codepen.io/YuHan0704/embed/ZEWbvpM?height=659&theme-id=dark&default-tab=html,result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/YuHan0704/pen/ZEWbvpM'>CSS position</a> by YuHan Huang
-  (<a href='https://codepen.io/YuHan0704'>@YuHan0704</a>) on <a href='https://codepen.io'>CodePen</a>.
-</iframe>
 
 
 ### 參考資料來源
