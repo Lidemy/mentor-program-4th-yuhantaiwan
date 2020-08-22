@@ -1,130 +1,126 @@
-const form = document.forms.lidemyForm;
-const name = form.elements.name;
-const email = form.elements.email;
-const phone = form.elements.phone;
-const type = form.elements.type;
-const ways = form.elements.ways;
-const comment = form.elements.comment;
-const error = document.querySelectorAll('.error-text');
-
-const submitBtn = document.querySelector('.submit-btn');
-
+const form = document.forms.lidemyForm
+const {
+        name,
+        email,
+        phone,
+        type,
+        ways,
+        comment
+      } = form.elements
+const submitBtn = document.querySelector('.submit-btn')
+const formArray = [name, email, phone, type, ways]
+let flag = false  // 視窗滑動偵測指標
 
 form.addEventListener('submit', function(e) {
-  if (!form.checkValidity()) {
-    if (!name.validity.valid) {
-      name.className = 'error';
-      error[0].classList.add('active');
-    }
-    if (!email.validity.valid) {
-      showEmailError();
-    }
-    if (!phone.validity.valid) {
-      showPhoneError();
-    }
-    if (!type[0].checked && !type[1].checked) {
-      error[3].classList.add('active');
-
-    }
-    if (!ways.validity.valid) {
-      ways.className = 'error';
-      error[4].classList.add('active');
-    }
-    
-    e.preventDefault();
-    windowScroll();
-    return;
+  if (!form.checkValidity()){
+    e.preventDefault()
+    formArray.forEach(function(item, index) {
+      if (item.length > 1) {
+        const result = isAllChecked(item)
+        if (!result) {
+          showBasicError(item)
+        }
+      } else {
+        if (!item.validity.valid) {
+          showBasicError(item)
+        }
+      }
+    })
+    formArray.forEach(function(item) {
+      windowScroll(item)
+    })
+    return
   }
   
-  let info = `恭喜報名成功！\n以下是你的報名資訊：
+  const info = `恭喜報名成功！\n以下是你的報名資訊：
   * 暱稱：${name.value}
   * 電子郵件：${email.value}
   * 手機號碼：${phone.value}
-  * 報名類型：${type[0].checked?type[0].value:type[1].value}
-  * 怎麼知道這個活動的？:${ways.value}
-  * 其他：${comment.value}`
+  * 報名類型：${type[0].checked ? type[0].value : type[1].value}
+  * 怎麼知道這個活動的:${ways.value}
+  * 其他：${comment.value ? comment.value : '無'}`
 
-  alert(info);
-
+  alert(info)
 })
 
+// 針對 email 與 phone 做 input 的即時監聽
 
-email.addEventListener('input', function() {
-  if (!email.validity.valid) {
-    showEmailError();
+form.addEventListener('input', function(e) {
+  if (e.target.id === 'email') {    
+    if (!email.validity.valid) {
+      showFutherError(email)
+    }
+  }
+  if (e.target.id === 'phone') {
+    if (!phone.validity.valid) {
+      showFutherError(phone)
+    }
   }
 })
-phone.addEventListener('input', function() {
-  if (!phone.validity.valid) {
-    showPhoneError();
-  }
-})
 
-
+// 針對 type=radio 若有選值就移除錯誤訊息
 form.addEventListener('click', function() {
-  if (type[0].checked || type[1].checked) {
-    error[3].classList.remove('active');
-  }
+  const result = isAllChecked(type)
+  const error = type[type.length-1].parentNode.nextElementSibling
+  if (result) error.classList.remove('active')
 })
 
-function showEmailError() {
-  if (email.validity.valueMissing) {
-    email.className = 'error';
-    error[1].classList.add('active');
-    error[1].textContent = '欄位資訊為必填';
-    return;
-  } 
+function isAllChecked(element) {
+  let result = false
+  element.forEach(function(item, index) {
+    if (item.checked) {
+      result = true
+      return
+    }
+  })
+  return result
+} 
+
+function showBasicError(element) {
+  if (element.length > 1) {
+    const error = element[element.length-1].parentNode.nextElementSibling
+    error.classList.add('active')
+  } else {
+    const error = element.nextElementSibling
+    element.className = 'error'
+    error.classList.add('active')
+  }
+} 
+
+function showFutherError(element) {
+  const error = element.nextElementSibling
+  if (element.validity.valueMissing) {
+    showBasicError(element)
+    error.textContent = '欄位資訊為必填'
+    return
+  }
+  // HTML 自帶 type=email 的驗證規則
   if (email.validity.typeMismatch) {
-    email.className = 'error';
-    error[1].classList.add('active');
-    error[1].textContent = 'email 格式不正確';
+    showBasicError(email)
+    error.textContent = 'email 格式不正確'
   }
-}
-
-function showPhoneError() {
-  if (phone.validity.valueMissing) {
-    phone.className = 'error';
-    error[2].classList.add('active');
-    error[2].textContent = '欄位資訊為必填';
-    return;
-  } 
+   // 驗證規則：10碼數字
   if (phone.validity.patternMismatch) {
-    phone.className = 'error';
-    error[2].classList.add('active');
-    error[2].textContent = '請輸入正確的手機號碼';
+    showBasicError(phone)
+    error.textContent = '請輸入正確的手機號碼'
   }
 }
 
-function windowScroll() {
-  const nameHeight = name.offsetTop - 60;
-  const emailHeight = email.offsetTop - 60;
-  const phoneHeight = phone.offsetTop - 60;
-  const typeHeight = type[0].offsetTop - 60;
-  const waysHeight = ways.offsetTop - 60;
-  const commentHeight = comment.offsetTop - 60;
-
-  if (!name.validity.valid) {
-    window.scrollTo(0, nameHeight);
-    return;
-  }
-  if (!email.validity.valid) {
-    window.scrollTo(0, emailHeight);
-    return;
-  }
-  if (!phone.validity.valid) {
-    window.scrollTo(0, phoneHeight);
-    return;
-  }
-  if (!type[0].checked && !type[1].checked) {
-    window.scrollTo(0, typeHeight);
-    return;
-  }
-  if (!ways.validity.valid) {
-    window.scrollTo(0, waysHeight);
-    return;
-  }
-  if (!comment.validity.valid) {
-    window.scrollTo(0, commentHeight);
-    return;
+// 讓視窗滑動到第一個驗證不通過的項目
+function windowScroll(element) {
+  if (flag) return
+  if (element.length > 1) {
+    const result = isAllChecked(element)
+    if (!result) {
+      const height = element[0].offsetTop - 60
+      window.scrollTo(0, height)
+      flag = true
+    }
+  } else {
+    if (!element.validity.valid) {
+      const height = element.offsetTop - 60
+      window.scrollTo(0, height)
+      flag = true
+    }
   }
 }
