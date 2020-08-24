@@ -8,15 +8,15 @@ const {
         comment
       } = form.elements
 const submitBtn = document.querySelector('.submit-btn')
-const formArray = [name, email, phone, type, ways]
-let flag = false  // 視窗滑動偵測指標
+const formNodeList = [name, email, phone, type, ways]
+// let flag = false  // 視窗滑動偵測指標
 
 form.addEventListener('submit', function(e) {
   if (!form.checkValidity()){
     e.preventDefault()
-    formArray.forEach(function(item, index) {
+    formNodeList.forEach(function(item) {
       if (item.length > 1) {
-        const result = isAllChecked(item)
+        const result = isChecked(item)
         if (!result) {
           showBasicError(item)
         }
@@ -26,9 +26,8 @@ form.addEventListener('submit', function(e) {
         }
       }
     })
-    formArray.forEach(function(item) {
-      windowScroll(item)
-    })
+    const firstErrorNode = checkFirstError(formNodeList)
+    windowScroll(firstErrorNode)
     return
   }
   
@@ -44,38 +43,25 @@ form.addEventListener('submit', function(e) {
 })
 
 // 針對 email 與 phone 做 input 的即時監聽
-
 form.addEventListener('input', function(e) {
-  if (e.target.id === 'email') {    
-    if (!email.validity.valid) {
-      showFutherError(email)
-    }
-  }
-  if (e.target.id === 'phone') {
-    if (!phone.validity.valid) {
-      showFutherError(phone)
-    }
-  }
+  showFurtherError(e.target)
 })
 
 // 針對 type=radio 若有選值就移除錯誤訊息
 form.addEventListener('click', function() {
-  const result = isAllChecked(type)
+  const result = isChecked(type)
   const error = type[type.length-1].parentNode.nextElementSibling
   if (result) error.classList.remove('active')
 })
 
-function isAllChecked(element) {
-  let result = false
-  element.forEach(function(item, index) {
-    if (item.checked) {
-      result = true
-      return
-    }
-  })
-  return result
+// 檢查是否有選值
+function isChecked(NodeList) {
+  // 將 NodeList 轉成 Array
+  let array = [...NodeList]
+  return array.some(item => item.checked)
 } 
 
+// 顯現基本錯誤訊息
 function showBasicError(element) {
   if (element.length > 1) {
     const error = element[element.length-1].parentNode.nextElementSibling
@@ -87,7 +73,8 @@ function showBasicError(element) {
   }
 } 
 
-function showFutherError(element) {
+// 針對 email 和 phone 的 input 顯現更進一步的錯誤訊息 
+function showFurtherError(element) {
   const error = element.nextElementSibling
   if (element.validity.valueMissing) {
     showBasicError(element)
@@ -95,32 +82,51 @@ function showFutherError(element) {
     return
   }
   // HTML 自帶 type=email 的驗證規則
-  if (email.validity.typeMismatch) {
-    showBasicError(email)
-    error.textContent = 'email 格式不正確'
+  if (element.name === 'email') {
+    if (element.validity.typeMismatch) {
+      showBasicError(element)
+      error.textContent = 'email 格式不正確'
+    }
   }
    // 驗證規則：10碼數字
-  if (phone.validity.patternMismatch) {
-    showBasicError(phone)
-    error.textContent = '請輸入正確的手機號碼'
+  if (element.name === 'phone') {
+    if (element.validity.patternMismatch) {
+      showBasicError(element)
+      error.textContent = '請輸入正確的手機號碼'
+    }
   }
+}
+
+// 檢查第一個驗證未通過的項目
+function checkFirstError(nodeList) {
+  let firstErrorNode;
+  for(let node of nodeList) {
+    if (node.length > 1) {
+      const result = isChecked(node)
+      if (!result) {
+        firstErrorNode = node
+        break
+      }
+    } else {
+      if (!node.validity.valid) {
+        firstErrorNode = node
+        break
+      }
+    }
+  }
+  return firstErrorNode
 }
 
 // 讓視窗滑動到第一個驗證不通過的項目
 function windowScroll(element) {
-  if (flag) return
+  let height
   if (element.length > 1) {
-    const result = isAllChecked(element)
-    if (!result) {
-      const height = element[0].offsetTop - 60
-      window.scrollTo(0, height)
-      flag = true
-    }
+    height = element[0].offsetTop - 60
   } else {
-    if (!element.validity.valid) {
-      const height = element.offsetTop - 60
-      window.scrollTo(0, height)
-      flag = true
-    }
+    height = element.offsetTop - 60
   }
+  window.scrollTo({
+    top: height,
+    behavior: "smooth"
+  })
 }

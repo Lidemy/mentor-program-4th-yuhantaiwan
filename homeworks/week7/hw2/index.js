@@ -1,3 +1,5 @@
+const transitionDuration = 300
+
 function getHeight(element) {
   element.style.display = 'block';
   let height = element.scrollHeight + 'px';
@@ -11,7 +13,7 @@ function showContent(element) {
   element.style.height = height;
   setTimeout(function() {
     element.style.height = 'auto';
-  }, 301)
+  }, transitionDuration)
 }
 
 function hideContent(element) {
@@ -22,7 +24,7 @@ function hideContent(element) {
   }, 1)
   setTimeout(function() {
     element.classList.remove('open');
-  }, 301)
+  }, transitionDuration)
 }
 
 document.querySelector('.question-list').addEventListener('click', function(e) {
