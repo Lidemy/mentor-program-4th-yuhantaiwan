@@ -1,0 +1,156 @@
+/* CSS reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0px;
+  padding: 0px;
+}
+ol, ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+a, a:active, a:visited, a:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+body {
+  background-image: linear-gradient(45deg, #e1ffbf 0%,#96daa7 100%);
+  overflow-y: hidden;
+}
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  position: relative;
+}
+#todolist {
+  width: 600px;
+  height: 600px;
+  margin: 60px auto 0;
+  padding: 20px;
+  border: none;
+  border-radius: 25px;
+  background-color: #fff;
+  box-shadow: 5px 7px 13px 3px rgba(0,0,0,0.2);
+}
+h1 {
+  text-align: center;
+  color: #55a48a;
+  font-size: 32px;
+  letter-spacing: 0.2px;
+}
+.add-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 20px auto;
+  width: 80%;
+}
+.add-input {
+  padding: 5px;
+  width: 80%;
+  font-size: 18px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+.add-input::placeholder {
+  color: #ccc;
+}
+.add-btn {
+  width: 54px;
+  height: 54px;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  font-size: 40px;
+  color: #fff;
+  background-color: mediumaquamarine;
+  transition: all .2s ease-in;
+}
+.add-btn:hover {
+  background-color: #39be91;
+}
+.content {
+  height: 400px;
+  overflow-y: auto;
+  padding-right: 19px;
+}
+.item-list {
+  width: 512px;
+  margin-left: 20px;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  background-color: #ededed;
+  transition: all .2s ease-in-out;
+}
+.item:hover {
+  box-shadow: 0px 0px 13px 1px rgba(0,0,0,0.25) inset;
+}
+.item:nth-child(2n) {
+  background-color: #f7f7f7;
+}
+.item-name {
+  position: relative;
+  padding: 20px 0 20px 40px;
+  display: block;
+  width: 100%;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+.item-name.done {
+  text-decoration: line-through;
+  color: #999;
+}
+.item-name:hover {
+  cursor: pointer;
+}
+.item-name::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 24px;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.item-name.done::before {
+  content: ' ';
+  color: cadetblue;
+  width: 7px;
+  height: 13px;
+  border: 3px solid cadetblue;
+  border-top: transparent;
+  border-left: transparent;
+  transform: rotate(40deg);
+}
+.delete-icon {
+  display: block;
+  padding: 20px;
+  transition: all .2s ease-in-out;
+}
+.delete-icon:hover {
+  cursor: pointer;
+  background-color: #ffd280
+}
+.delete-icon.done {
+  color: #999;
+  text-decoration: line-through;
+}
