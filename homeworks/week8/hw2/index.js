@@ -14,8 +14,12 @@ const cardTemplate = `<a href="$url" class="card-item" target="_blank">
     </div>
   </div>
 </a>`
-const emptyCard = `<div class="empty-card"></div>
+const emptyCard = `<div class="empty-card"><a href="" class="more-card-btn">More Streams</a></div>
 <div class="empty-card"></div>`
+const gameslimit = 5
+const streamsLimit = 20
+let currGame = ''
+let offset = 0
 
 getTopGames(topGames => {
   for (let game of topGames) {
@@ -29,16 +33,16 @@ getTopGames(topGames => {
 
 document.querySelector('.navbar').addEventListener('click', function(e) {
   if (e.target.tagName.toLowerCase() === 'li') {
-    const text = e.target.innerText
-    document.querySelector('.title').innerText = text
-    getStreams(text, streams => renderStreamCards(streams))
+    currGame = e.target.innerText
+    document.querySelector('.title').innerText = currGame
+    offset = 0
+    getStreams(currGame, streams => renderStreamCards(streams))
   }
 })
 
 function getTopGames(callback) {
   const request = new XMLHttpRequest()
-  const limit = 5
-  request.open('Get', `${url}games/top?limit=${limit}`)
+  request.open('Get', `${url}games/top?limit=${gameslimit}`)
   request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
   request.setRequestHeader('Client-ID', clientID)
   request.send()
@@ -55,9 +59,8 @@ function getTopGames(callback) {
 
 function getStreams(game, callback) {
   const request = new XMLHttpRequest()
-  const limit = 20
   game = encodeURIComponent(game)   // 重要！記得編碼轉換
-  request.open('Get', `${url}streams?game=${game}&limit=${limit}`)
+  request.open('Get', `${url}streams?game=${game}&limit=${streamsLimit}&offset=${offset}`)
   request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
   request.setRequestHeader('Client-ID', clientID)
   request.send()
@@ -65,7 +68,7 @@ function getStreams(game, callback) {
     if (request.status >= 200 && request.status < 400) {
       const response = JSON.parse(request.responseText)
       console.log(response)
-      const streams = response.streams
+      let streams = response.streams
       callback(streams)
     }
   }
@@ -80,7 +83,9 @@ function renderNavbar(topGames) {
 }
 
 function renderStreamCards(streams) {
-  document.querySelector('.card-groups').innerHTML = ''
+  if (offset === 0) {
+    document.querySelector('.card-groups').innerHTML = ''
+  }
   for (let stream of streams) {
     let element = document.createElement('a')
     let cardItem = cardTemplate
@@ -93,10 +98,29 @@ function renderStreamCards(streams) {
     element.outerHTML = cardItem    // 要先 appendChild，才能 outerHTML
   }
   appendEmptyCard()
+  if (offset <= 900) {
+    loadMoreCards()
+  }
 }
 
 function appendEmptyCard() {
   let element = document.createElement('div')
   document.querySelector('.card-groups').appendChild(element)
   element.outerHTML = emptyCard
+}
+
+function removeEmptyCard() {
+  document.querySelectorAll('.empty-card').forEach(item => item.remove())
+}
+
+function loadMoreCards() {
+  document.querySelector('.more-card-btn').addEventListener('click', function(e) {
+    e.preventDefault()
+    offset = offset + streamsLimit
+    getStreams(currGame, streams => {
+      console.log(offset)
+      removeEmptyCard()
+      renderStreamCards(streams)
+    })
+  })
 }
