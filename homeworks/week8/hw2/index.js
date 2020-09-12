@@ -19,13 +19,13 @@ const emptyCard = `<div class="empty-card"><a href="" class="more-card-btn">More
 const navbar = document.querySelector('.navbar')
 const gameslimit = 5
 const streamsLimit = 20
-let currGame = ''
+let currentGame = ''
 let offset = 0
 
 getTopGames(topGames => {
   renderNavbar(topGames)
   document.querySelector('.title').innerText = topGames[0]
-  currGame = topGames[0]
+  currentGame = topGames[0]
   getStreams(topGames[0], game => renderStreamCards(game))
 })
 
@@ -35,10 +35,10 @@ navbar.addEventListener('click', function(e) {
       node.classList.remove('active')
     })
     e.target.classList.add('active')
-    currGame = e.target.innerText
-    document.querySelector('.title').innerText = currGame
+    currentGame = e.target.innerText
+    document.querySelector('.title').innerText = currentGame
     offset = 0
-    getStreams(currGame, streams => renderStreamCards(streams))
+    getStreams(currentGame, streams => renderStreamCards(streams))
   }
 })
 
@@ -120,7 +120,7 @@ function loadMoreCards() {
   document.querySelector('.more-card-btn').addEventListener('click', function(e) {
     e.preventDefault()
     offset = offset + streamsLimit
-    getStreams(currGame, streams => {
+    getStreams(currentGame, streams => {
       removeEmptyCard()
       renderStreamCards(streams)
     })
