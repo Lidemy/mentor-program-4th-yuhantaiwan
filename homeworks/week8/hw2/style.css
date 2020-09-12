@@ -41,15 +41,19 @@ nav h1 {
 }
 .navbar li {
   display: inline-block;
-  padding: 15px 10px;
+  padding: 20px 10px;
   color: #2a2a2a;
   text-align: center;
   transition: all .15s ease-in-out;
 }
 .navbar li:hover {
-  background-color: #2a2a2a;
+  background-color: #4b4b4b;
   color: #fff;
   cursor: pointer;
+}
+.navbar li.active {
+  background-color: #2a2a2a;
+  color: #fff;
 }
 .navbar li + li {
   margin-left: 10px;
@@ -145,17 +149,23 @@ nav h1 {
 .more-card-btn {
   display: inline-block;
   padding: 20px 15px;
-  margin: 0 auto;
+  margin: 40px auto;
   font-size: 18px;
   color: #fff;
   border: 1px solid #fff;
   border-radius: 5px;
+  transition: all .15s ease-in-out;
+}
+.more-card-btn:hover {
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.1);
 }
 .hidden {
   display: none;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 980px) {
   nav {
     flex-direction: column;
   }
@@ -169,7 +179,7 @@ nav h1 {
     width: 48%;
   }
 }
-@media(max-width: 767px) {
+@media(max-width: 650px) {
   nav {
     flex-direction: column;
     padding: 0;
@@ -191,7 +201,11 @@ nav h1 {
   .wrapper {
     padding: 0 10px;
   }
+  .card-top {
+    height: 320px;
+  }
   .card-item {
     width: 100%;
+    height: 400px;
   }
 }

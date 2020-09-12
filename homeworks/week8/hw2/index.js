@@ -15,24 +15,26 @@ const cardTemplate = `<a href="$url" class="card-item" target="_blank">
   </div>
 </a>`
 const emptyCard = `<div class="empty-card"><a href="" class="more-card-btn">More Streams</a></div>
-<div class="empty-card"></div>`
+<div class="empty-card"></div><div class="empty-card"></div>`
+const navbar = document.querySelector('.navbar')
 const gameslimit = 5
 const streamsLimit = 20
 let currGame = ''
 let offset = 0
 
 getTopGames(topGames => {
-  for (let game of topGames) {
-    let element = document.createElement('li')
-    element.textContent = game
-    document.querySelector('.navbar').appendChild(element)
-    document.querySelector('.title').innerText = topGames[0]
-  }
+  renderNavbar(topGames)
+  document.querySelector('.title').innerText = topGames[0]
+  currGame = topGames[0]
   getStreams(topGames[0], game => renderStreamCards(game))
 })
 
-document.querySelector('.navbar').addEventListener('click', function(e) {
+navbar.addEventListener('click', function(e) {
   if (e.target.tagName.toLowerCase() === 'li') {
+    navbar.childNodes.forEach(node => {
+      node.classList.remove('active')
+    })
+    e.target.classList.add('active')
     currGame = e.target.innerText
     document.querySelector('.title').innerText = currGame
     offset = 0
@@ -78,8 +80,9 @@ function renderNavbar(topGames) {
   for (let game of topGames) {
     let element = document.createElement('li')
     element.textContent = game
-    document.querySelector('.navbar').appendChild(element)
+    navbar.appendChild(element)
   }
+  navbar.firstElementChild.classList.add('active')
 }
 
 function renderStreamCards(streams) {
@@ -118,7 +121,6 @@ function loadMoreCards() {
     e.preventDefault()
     offset = offset + streamsLimit
     getStreams(currGame, streams => {
-      console.log(offset)
       removeEmptyCard()
       renderStreamCards(streams)
     })
