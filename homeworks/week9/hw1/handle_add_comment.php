@@ -12,7 +12,7 @@
 
   $content = $_POST['content'];
 
-  $sql = sprintf("INSERT INTO comments(nickname, content) VALUES ('%s', '%s')", $nickname, $content);
+  $sql = sprintf("INSERT INTO yuhan_comments(nickname, content) VALUES ('%s', '%s')", $nickname, $content);
 
   $result = $conn->query($sql);
 

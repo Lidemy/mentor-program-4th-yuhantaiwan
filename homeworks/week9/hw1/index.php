@@ -6,7 +6,7 @@
   if (!empty($_SESSION['username'])) {
     $username = $_SESSION['username'];
   }
-  $sql = 'SELECT * FROM comments ORDER BY id DESC';
+  $sql = 'SELECT * FROM yuhan_comments ORDER BY id DESC';
   $result = $conn->query($sql);
   if (!$result) {
     die('Error: ' . $conn->error);

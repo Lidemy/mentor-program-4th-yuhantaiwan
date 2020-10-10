@@ -17,7 +17,7 @@
      * $row = $result->fetch_assoc();
      * $username = $row['username'];
      */
-    $user_sql = sprintf('SELECT * FROM users WHERE username = "%s"', $username);
+    $user_sql = sprintf('SELECT * FROM yuhan_users WHERE username = "%s"', $username);
     $result = $conn->query($user_sql);
     $row = $result->fetch_assoc();
     return $row;
