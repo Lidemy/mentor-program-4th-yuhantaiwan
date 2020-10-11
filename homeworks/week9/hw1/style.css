@@ -1,0 +1,122 @@
+/* CSS reset */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  background-color: #F9F8F9;
+  /* position: relative; */
+}
+* {
+  box-sizing: border-box;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0px;
+  padding: 0px;
+}
+ol, ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+a, a:active, a:visited, a:focus {
+  text-decoration: none;
+  outline: none;
+  color: #000;
+}
+
+/* board */
+header {
+  padding: 10px;
+  background-color: #FFC4C7;
+  color: #B3202E;
+  text-align: center;
+  font-weight: bolder;
+}
+.board {
+  max-width: 760px;
+  width: 100%;
+  margin: 15px auto;
+  padding: 15px 30px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.1);
+}
+.btn {
+  display: inline-block;
+  padding: 8px 25px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #c2dffb;
+  border-radius: 5px;
+  background-color: #fff;
+  outline: none;
+  transition: all .15s ease-in-out;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: #3f9af3;
+  color: #fff;
+  border: 1px solid #3f9af3;
+}
+.btn + .btn {
+  margin-left: 10px;
+}
+.login-section {
+  margin-bottom: 20px;
+}
+h2.comments-title {
+  font-size: 28px;
+  margin: 10px 0;
+}
+.error {
+  color: #B3202E;
+}
+.comments-input input {
+  width: 40%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #c2dffb;
+  border-radius: 3px;
+  outline: none;
+  /* font-size: 14px; */
+}
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c2dffb;
+  border-radius: 3px;
+  outline: none;
+  /* font-size: 14px; */
+  resize: none;
+}
+.submit-btn {
+  margin-top: 8px;
+}
+.divider {
+  width: 95%;
+  border-top: 2px solid #e8e8e8;
+  margin: 20px auto;
+}
+.comment-item {
+  display: flex;
+  margin-bottom: 20px;
+}
+.user-img {
+  margin-right: 10px;
+}
+.fa-user-circle {
+  font-size: 40px;
+  color: #ccc;
+}
+.user-name {
+  font-size: 17px;
+  color: #3f9af3;
+  font-weight: 500;
+}
+.comment-time {
+  color: #999;
+}
+.comment-text {
+  margin-top: 10px;
+  word-break: break-word;
+}
